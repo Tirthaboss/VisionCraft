@@ -5,17 +5,17 @@ from bs4 import BeautifulSoup
 import requests
 import os
 
-OpenAI API Key
+#OpenAI API Key
 openai.api_key = os.getenv('VisionCraft')
 
-Streamlit App
+#Streamlit App
 st.title("AI-Powered Business Idea Generator")
 
-Industry Selection
+#Industry Selection
 industries = ["Technology", "Healthcare", "E-commerce", "Finance", "Education"]
 selected_industry = st.selectbox("Select an industry", industries)
 
-Trend Analysis
+#Trend Analysis
 @st.cache
 def get_trends(industry):
     url = f"https://www.google.com/search?q={industry}+trends"
@@ -26,7 +26,7 @@ def get_trends(industry):
 
 trends = get_trends(selected_industry)
 
-AI-Generated Business Ideas
+#AI-Generated Business Ideas
 @st.cache
 def generate_business_ideas(industry, trends):
     prompt = f"Generate innovative business ideas for the {industry} industry, incorporating the following trends: {', '.join(trends)}."
@@ -36,12 +36,12 @@ def generate_business_ideas(industry, trends):
 
 business_ideas = generate_business_ideas(selected_industry, trends)
 
-Display Business Ideas
+#Display Business Ideas
 st.write("AI-Generated Business Ideas:")
 for idea in business_ideas:
     st.write(idea)
 
-Competitive Analysis
+#Competitive Analysis
 @st.cache
 def competitive_analysis(idea):
     url = f"https://www.google.com/search?q={idea}+competitors"
@@ -50,7 +50,7 @@ def competitive_analysis(idea):
     competitors = [h3.text for h3 in soup.find_all('h3')]
     return competitors
 
-Revenue Model and SWOT Analysis
+#Revenue Model and SWOT Analysis
 @st.cache
 def revenue_model_and_swot_analysis(idea):
     prompt = f"Provide a revenue model and SWOT analysis for the business idea: {idea}."
@@ -58,7 +58,7 @@ def revenue_model_and_swot_analysis(idea):
     analysis = response.choices[0].text
     return analysis
 
-Display Competitive Analysis, Revenue Model, and SWOT Analysis
+#Display Competitive Analysis, Revenue Model, and SWOT Analysis
 st.write("Competitive Analysis:")
 competitors = competitive_analysis(business_ideas[0])
 for competitor in competitors:
