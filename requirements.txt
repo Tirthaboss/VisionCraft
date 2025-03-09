@@ -1,4 +1,4 @@
-beautifulsoup==3.2.2
+beautifulsoup4
 streamlit
 openAI
 requests
