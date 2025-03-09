@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 
 OpenAI API Key
-openai.api_key = "YOUR_OPENAI_API_KEY"
+openai.api_key = VisionCraft
 
 Streamlit App
 st.title("AI-Powered Business Idea Generator")
