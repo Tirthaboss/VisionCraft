@@ -3,9 +3,10 @@ from streamlit import caching
 import openai
 from bs4 import BeautifulSoup
 import requests
+import os
 
 OpenAI API Key
-openai.api_key = VisionCraft
+openai.api_key = os.getenv('VisionCraft')
 
 Streamlit App
 st.title("AI-Powered Business Idea Generator")
