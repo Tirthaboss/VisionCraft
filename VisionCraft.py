@@ -5,7 +5,7 @@ import requests
 import os
 
 # OpenAI API Key
-openai.api_key = os.getenv('OPENAI_API_KEY')  # Ensure this matches your GitHub secret
+openai.api_key = os.getenv('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')  # Ensure this matches your GitHub secret
 
 # Streamlit App
 st.title("AI-Powered Business Idea Generator")
